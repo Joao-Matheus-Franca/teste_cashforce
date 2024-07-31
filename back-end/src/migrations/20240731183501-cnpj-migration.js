@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER(11)
       },
-      name: {
+      cnpj: {
         allowNull: false,
         type: Sequelize.STRING(255)
       },
