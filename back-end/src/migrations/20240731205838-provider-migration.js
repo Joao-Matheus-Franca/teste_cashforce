@@ -68,6 +68,9 @@ module.exports = {
       account: { 
         type: Sequelize.STRING(255)
       },
+      documents: {
+        type: Sequelize.STRING(255),
+      },
       phoneNumber: {
         type: Sequelize.STRING(255),
       },

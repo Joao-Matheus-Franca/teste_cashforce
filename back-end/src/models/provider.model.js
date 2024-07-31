@@ -20,6 +20,7 @@ const ProviderModel = (sequelize, DataTypes) => {
       bank: DataTypes.STRING(255),
       bankAgency: DataTypes.STRING(255),
       account: DataTypes.STRING(255),
+      documents: DataTypes.STRING(255),
       phoneNumber: DataTypes.STRING(255),
       situation: DataTypes.STRING(255),
       situationDate: DataTypes.STRING(255),
