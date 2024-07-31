@@ -20,7 +20,6 @@ module.exports = {
           updatedAt: '2020-10-29 21:20:33',
         }
       ], {});
-      console.log('Executando o seeder do cnpj');
   },
 
   async down (queryInterface, Sequelize) {
