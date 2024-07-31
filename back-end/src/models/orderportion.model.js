@@ -17,4 +17,4 @@ const OrderPortionModel = (sequelize, DataTypes) => {
     return OrderPortion;
   };
   
-  module.exports = CnpjModel;
+  module.exports = OrderPortionModel;
