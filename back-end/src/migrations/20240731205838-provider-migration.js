@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('buyers', {
+    await queryInterface.createTable('providers', {
       id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
@@ -59,6 +59,15 @@ module.exports = {
       state: {
         type: Sequelize.STRING(255),
       },
+      bank: { 
+        type: Sequelize.STRING(255)
+      },
+      bankAgency: { 
+        type: Sequelize.STRING(255)
+      },
+      account: { 
+        type: Sequelize.STRING(255)
+      },
       phoneNumber: {
         type: Sequelize.STRING(255),
       },
@@ -90,6 +99,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('buyers');
+    await queryInterface.dropTable('providers');
   }
 };
