@@ -13,4 +13,4 @@ const CnpjModel = (sequelize, DataTypes) => {
     return Cnpj;
   };
   
-  module.exports = UserModel;
+module.exports = CnpjModel;
