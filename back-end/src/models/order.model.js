@@ -90,14 +90,8 @@ const OrderModel = (sequelize, DataTypes) => {
 
     Order.associate = (models) => {
       Order.belongsTo(models.User, { foreignKey: 'userId' });
-    };
-    Order.associate = (models) => {
       Order.belongsTo(models.Cnpj, { foreignKey: 'cnpjId' });
-    };
-    Order.associate = (models) => {
       Order.belongsTo(models.Buyer, { foreignKey: 'buyerId' });
-    };
-    Order.associate = (models) => {
       Order.belongsTo(models.Provider, { foreignKey: 'providerId' });
     };
   
