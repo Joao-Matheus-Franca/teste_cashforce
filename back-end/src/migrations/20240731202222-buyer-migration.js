@@ -78,6 +78,13 @@ module.exports = {
       },
       cnpjId: {
         type: Sequelize.INTEGER(11),
+        foreignKey: true,
+        reference: { 
+          model: 'Cnpj',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       confirm: {
         type: Sequelize.TINYINT(1),

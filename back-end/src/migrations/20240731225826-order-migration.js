@@ -56,15 +56,43 @@ module.exports = {
       },
       cnpjId: {
         type: Sequelize.INTEGER,
+        foreignKey: true,
+        reference: { 
+          model: 'Cnpj',
+          key: 'id',
+         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       userId: {
         type: Sequelize.INTEGER,
+        foreignKey: true,
+        reference: { 
+          model: 'User',
+          key: 'id',
+         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       buyerId: {
         type: Sequelize.INTEGER,
+        foreignKey: true,
+        reference: { 
+          model: 'Buyer',
+          key: 'id',
+         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       providerId: {
         type: Sequelize.INTEGER,
+        foreignKey: true,
+        reference: { 
+          model: 'Provider',
+          key: 'id',
+         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       orderStatusBuyer: {
         type: Sequelize.STRING,
