@@ -1,6 +1,11 @@
 const SponsorModel = (sequelize, DataTypes) => {
     const Sponsor = sequelize.define('Sponsor', {
-      id: DataTypes.INTEGER(11),
+      id: { 
+        type: DataTypes.INTEGER(11),
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
       name: DataTypes.STRING(255),
       tradingName: DataTypes.STRING(255),
       cashforceTax: DataTypes.STRING(255),

@@ -89,7 +89,7 @@ const BuyerModel = (sequelize, DataTypes) => {
   });
 
   Buyer.associate = (models) => {
-    Buyer.belongTo(models.Cnpj, { foreignKey: 'cnpjId' });
+    Buyer.belongsTo(models.Cnpj, { foreignKey: 'cnpjId' });
   };
 
   Buyer.associate = (models) => {

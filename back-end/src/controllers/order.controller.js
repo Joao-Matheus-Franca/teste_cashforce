@@ -1,6 +1,6 @@
-const { orderService } = require('../services/order.service')
+const orderService = require('../services/order.service')
 
-const getAll = async (_req, res) => {
+const getAllOrders = async (_req, res) => {
     try {
       const orders = await orderService.getAll();
       return res.status(200).json(orders);
@@ -10,4 +10,4 @@ const getAll = async (_req, res) => {
     }
   };
   
-  module.exports = getAll;
+  module.exports = { getAllOrders };

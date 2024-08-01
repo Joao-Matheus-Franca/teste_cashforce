@@ -1,6 +1,11 @@
 const OfferModel = (sequelize, DataTypes) => {
   const Offer = sequelize.define('Offer', {
-    id: DataTypes.INTEGER(11),
+    id: { 
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     tax: DataTypes.STRING(255),
     tariff: DataTypes.STRING(255),
     adValorem: DataTypes.STRING(255),

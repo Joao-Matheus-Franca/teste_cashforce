@@ -1,9 +1,7 @@
 const OrderModel = (sequelize, DataTypes) => {
     const Order = sequelize.define('Order', {
       id: { 
-        type: { 
-          type: DataTypes.INTEGER(11) 
-        },
+        type: DataTypes.INTEGER(11),
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
@@ -91,16 +89,16 @@ const OrderModel = (sequelize, DataTypes) => {
     });
 
     Order.associate = (models) => {
-      Order.belongTo(models.User, { foreignKey: 'userId' });
+      Order.belongsTo(models.User, { foreignKey: 'userId' });
     };
     Order.associate = (models) => {
-      Order.belongTo(models.Cnpj, { foreignKey: 'cnpjId' });
+      Order.belongsTo(models.Cnpj, { foreignKey: 'cnpjId' });
     };
     Order.associate = (models) => {
-      Order.belongTo(models.Buyer, { foreignKey: 'buyerId' });
+      Order.belongsTo(models.Buyer, { foreignKey: 'buyerId' });
     };
     Order.associate = (models) => {
-      Order.belongTo(models.Provider, { foreignKey: 'providerId' });
+      Order.belongsTo(models.Provider, { foreignKey: 'providerId' });
     };
   
     return Order;

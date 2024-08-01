@@ -1,9 +1,9 @@
-const { OrderModel } = require('../models');
+const { Order } = require('../models');
 
 const getAll = async () => {
-    const orders = await OrderModel.findAll();
+    const orders = await Order.findAll();
 
     return orders;
 };  
 
-module.exports = getAll
+module.exports = { getAll };
