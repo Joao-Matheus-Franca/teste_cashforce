@@ -42,7 +42,8 @@ module.exports = {
         type: Sequelize.DATE
       },
       cashforceAdm: {
-        type: Sequelize.TINYINT(1)
+        type: Sequelize.TINYINT(1),
+        defaultValue: 0
       }
     });
   },

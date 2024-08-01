@@ -1,30 +1,86 @@
 const BuyerModel = (sequelize, DataTypes) => {
   const Buyer = sequelize.define('Buyer', {
-    id: DataTypes.INTEGER(11),
-    name: DataTypes.STRING(255),
-    tradingName: DataTypes.STRING(255),
-    cashforceTax: DataTypes.STRING(255),
-    responsibleName: DataTypes.STRING(255),
-    responsibleEmail: DataTypes.STRING(255),
-    responsiblePosition: DataTypes.STRING(255),
-    responsiblePhone: DataTypes.STRING(255),
-    responsibleMobile : DataTypes.STRING(255),
-    website: DataTypes.STRING(255),
-    postalCode: DataTypes.STRING(255),
-    address: DataTypes.STRING(255),
-    number: DataTypes.STRING(255),
-    complement: DataTypes.STRING(255),
-    neighborhood: DataTypes.STRING(255),
-    city: DataTypes.STRING(255),
-    state: DataTypes.STRING(255),
-    phoneNumber: DataTypes.STRING(255),
-    situation: DataTypes.STRING(255),
-    situationDate: DataTypes.STRING(255),
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
-    cnpjId: DataTypes.INTEGER(11),
-    confirm: { type: DataTypes.TINYINT(1), defaultValue: 1},
-    email: DataTypes.STRING(255)
+    id: { 
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true, 
+    },
+    name: { 
+      type: DataTypes.STRING(255),
+      allowNull: false 
+    },
+    tradingName: { 
+      type: DataTypes.STRING(255) 
+    },
+    cashforceTax: { 
+      type: DataTypes.STRING(255) 
+    },
+    responsibleName: { 
+      type: DataTypes.STRING(255) 
+    },
+    responsibleEmail: { 
+      type: DataTypes.STRING(255) 
+    },
+    responsiblePosition: { 
+      type: DataTypes.STRING(255) 
+    },
+    responsiblePhone: { 
+      type: DataTypes.STRING(255) 
+    },
+    responsibleMobile : { 
+      type: DataTypes.STRING(255) 
+    },
+    website: { 
+      type: DataTypes.STRING(255) 
+    },
+    postalCode: { 
+      type: DataTypes.STRING(255) 
+    },
+    address: { 
+      type: DataTypes.STRING(255) 
+    },
+    number: { 
+      type: DataTypes.STRING(255) 
+    },
+    complement: { 
+      type: DataTypes.STRING(255) 
+    },
+    neighborhood: { 
+      type: DataTypes.STRING(255) 
+    },
+    city: { 
+      type: DataTypes.STRING(255) 
+    },
+    state: { 
+      type: DataTypes.STRING(255) 
+    },
+    phoneNumber: { 
+      type: DataTypes.STRING(255) 
+    },
+    situation: { 
+      type: DataTypes.STRING(255) 
+    },
+    situationDate: { 
+      type: DataTypes.STRING(255) 
+    },
+    createdAt: { 
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: { 
+      type: DataTypes.DATE,
+      allowNull: false 
+    },
+    cnpjId: { 
+      type: DataTypes.INTEGER(11) 
+    },
+    confirm: { 
+      type: DataTypes.TINYINT(1), defaultValue: 1
+    },
+    email: { 
+      type: DataTypes.STRING(255) 
+    }
   },
   {
     tableName: 'buyers'

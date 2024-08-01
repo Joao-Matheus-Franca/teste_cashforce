@@ -77,7 +77,7 @@ module.exports = {
         allowNull: false,
       },
       cnpjId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER(11),
       },
       confirm: {
         type: Sequelize.TINYINT(1),

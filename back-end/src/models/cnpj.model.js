@@ -1,10 +1,27 @@
 const CnpjModel = (sequelize, DataTypes) => {
     const Cnpj = sequelize.define('Cnpj', {
-      id: DataTypes.INTEGER(11),
-      cnpj: DataTypes.STRING(255),
-      companyType: DataTypes.STRING(255),
-      createdAt: DataTypes.DATE,
-      updatedAt: DataTypes.DATE,
+      id: { 
+        type: DataTypes.INTEGER(11),
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true, 
+      },
+      cnpj: { 
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },
+      companyType: { 
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },
+      createdAt: { 
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      updatedAt: { 
+        type: DataTypes.DATE,
+        allowNull: false,
+      }
     },
     {
       tableName: 'cnpjs'
