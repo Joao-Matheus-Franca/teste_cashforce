@@ -85,7 +85,8 @@ const ProviderModel = (sequelize, DataTypes) => {
         allowNull: false,
       },
       cnpjId: { 
-        type: DataTypes.INTEGER(11)
+        type: DataTypes.INTEGER(11),
+        foreignKey: true,
       },
       email: { 
         type: DataTypes.STRING(255)
@@ -94,6 +95,16 @@ const ProviderModel = (sequelize, DataTypes) => {
     {
       tableName: 'providers'
     });
+
+    Provider.associate = (models) => {
+      Provider.belongTo(models.Cnpj, { foreignKey: 'cnpjId' });
+    };
+    
+    Provider.associate = (models) => {
+      Provider.hasMany(models.Order, { foreignKey: 'providerId' });
+    };
+
+    return Provider
   };
   
   module.exports = ProviderModel;

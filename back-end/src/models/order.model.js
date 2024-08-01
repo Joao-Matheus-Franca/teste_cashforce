@@ -53,16 +53,20 @@ const OrderModel = (sequelize, DataTypes) => {
         allowNull: false
       },
       cnpjId: { 
-        type: DataTypes.INTEGER(11) 
+        type: DataTypes.INTEGER(11),
+        foreignKey: true, 
       },
       userId: { 
-        type: DataTypes.INTEGER(11) 
+        type: DataTypes.INTEGER(11),
+        foreignKey: true, 
       },
       buyerId: { 
-        type: DataTypes.INTEGER(11) 
+        type: DataTypes.INTEGER(11),
+        foreignKey: true, 
       },
       providerId : { 
-        type: DataTypes.INTEGER(11) 
+        type: DataTypes.INTEGER(11),
+        foreignKey: true, 
       },
       orderStatusBuyer: { 
         type: DataTypes.STRING(255),
@@ -85,6 +89,19 @@ const OrderModel = (sequelize, DataTypes) => {
     {
       tableName: 'orders'
     });
+
+    Order.associate = (models) => {
+      Order.belongTo(models.User, { foreignKey: 'userId' });
+    };
+    Order.associate = (models) => {
+      Order.belongTo(models.Cnpj, { foreignKey: 'cnpjId' });
+    };
+    Order.associate = (models) => {
+      Order.belongTo(models.Buyer, { foreignKey: 'buyerId' });
+    };
+    Order.associate = (models) => {
+      Order.belongTo(models.Provider, { foreignKey: 'providerId' });
+    };
   
     return Order;
   };

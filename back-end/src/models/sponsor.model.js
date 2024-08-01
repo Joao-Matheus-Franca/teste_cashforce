@@ -32,6 +32,8 @@ const SponsorModel = (sequelize, DataTypes) => {
     {
       tableName: 'sponsors'
     });
+
+    return Sponsor
   };
   
   module.exports = SponsorModel;

@@ -47,6 +47,10 @@ const UserModel = (sequelize, DataTypes) => {
     tableName: 'users'
   });
 
+  User.associate = (models) => {
+      User.hasMany(models.Order, { foreignKey: 'userId' });
+  };
+
   return User;
 };
 

@@ -17,6 +17,8 @@ const OfferModel = (sequelize, DataTypes) => {
   {
     tableNames: 'offers'
   });
+
+  return Offer
 };
 
 module.exports = OfferModel;
