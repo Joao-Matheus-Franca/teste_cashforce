@@ -1,11 +1,13 @@
 <script setup>
 import MainHeader from './components/MainHeader.vue'
 import MainNavbar from './components/MainNavbar.vue'
+import MainContent from './components/MainContent.vue'
 </script>
 
 <template>
   <MainHeader/>
   <MainNavbar/>
+  <MainContent/>
 </template>
 
 <style>
