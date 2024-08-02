@@ -1,15 +1,25 @@
-<template>
-    <h1>Começo: {{ comeco }}</h1>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      comeco: 'Hello World'
-    }
-  }
-}
+<script setup>
+import MainHeader from './components/MainHeader.vue'
 </script>
 
-<style></style>
+<template>
+  <MainHeader/>
+</template>
+
+<style>
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+  }
+
+  #app {
+    width: 100%;
+    height: 100%;
+  }
+</style>
