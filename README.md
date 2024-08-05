@@ -24,6 +24,7 @@
 6. Estruturar banco de dados através do Sequelize CLI: ``` env $(cat .env) npx sequelize db:migrate ```
 7. Popular banco de dados através do Sequelize CLI: ``` env $(cat .env) npx sequelize db:seed:all ```
 8. Executar a API no modo de desenvolvedor: ``` npm run dev ```
-9. Mudar para diretório do front-end: ``` cd ../front-end ```
-10. Instalar instâncias necessárias: ``` npm install ```
-11. Executar a aplicação no modo de desenvolvedor: ``` npm run dev ```
+9. Abrir nova sessão do terminal
+10. Mudar para diretório do front-end: ``` cd front-end ```
+11. Instalar instâncias necessárias: ``` npm install ```
+12. Executar a aplicação no modo de desenvolvedor: ``` npm run dev ```
