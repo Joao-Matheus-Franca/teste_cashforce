@@ -1,4 +1,74 @@
-<script></script>
+<script>
+    import { ref, onMounted } from 'vue';
+    import axios from 'axios';
+
+    export default {
+        setup() {
+            const orders = ref([]);
+            const error = ref(null);
+
+         const getData = async () => {
+            try {
+                const result = await axios.get("http://localhost:3001/orders");
+                orders.value = result.data;
+                orders.value = orders.value.map((o) => {
+                    const dataCompleta = new Date(o.emissionDate);
+                    const dia = dataCompleta.getDate();
+                    const mes = dataCompleta.getMonth();
+                    const ano = dataCompleta.getFullYear()
+                    o.emissionDate = `${dia}/${mes}/${ano}`;
+
+                    let valor = new Number(o.value);
+                    valor = valor.toLocaleString(undefined, {minimumFractionDigits: 2})
+                    o.value = `R$ ${valor}`;
+
+                    switch (o.orderStatusBuyer) {
+                        case '0':
+                            o.orderStatusBuyer = 'Pendente de confirmação';
+                            break;
+                        case '1':
+                            o.orderStatusBuyer = 'Pendente de confirmação';
+                            break;
+                        case '2': 
+                            o.orderStatusBuyer = 'Não reconhece o pedido'
+                            break;
+                        case '3': 
+                            o.orderStatusBuyer = 'Mercadoria não recebida'
+                            break;
+                        case '4': 
+                            o.orderStatusBuyer = 'Recebida com avaria'
+                            break;
+                        case '5': 
+                            o.orderStatusBuyer = 'Devolvida'
+                            break;
+                        case '6': 
+                            o.orderStatusBuyer = 'Recebida com devolução parcial'
+                            break;
+                        case '7': 
+                            o.orderStatusBuyer = 'Recebida e confirmada'
+                            break;
+                        case '8': 
+                            o.orderStatusBuyer = 'Pagamento Autorizado'
+                            break;
+                    }
+                    return o
+                });
+            } catch (err) {
+                error.value = err.message;
+            } 
+    };
+
+    onMounted(() => {
+      getData();
+    });
+
+    return {
+      orders,
+      error,
+    };
+  },
+};
+</script>
 
 <template>
     <main class="content">
@@ -14,14 +84,14 @@
                 <th>Valor</th>
                 <th>Status</th>
             </tr>
-            <tr class="contentTableRow">
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
+            <tr v-for="order in orders" :key="order.id" class="contentTableRow">
+                <td>{{order.nNf}}</td>
+                <td>{{order.Buyer.name}}</td>
+                <td>{{order.Provider.name}}</td>
+                <td>{{order.emissionDate}}</td>
+                <td class="specialCells">{{order.value}}</td>
+                <td class="specialCells">{{order.orderStatusBuyer}}</td>
+                <td class="providerButton">Dados do cedente</td>
             </tr>
         </table>
     </main>
@@ -56,8 +126,14 @@
         text-align: center;
     }
     .contentTableRow {
-        border: 1px solid black;
+        color: rgba(77, 85, 102, 1);
         border-radius: 50px;
     }
-
+    .specialCells {
+        color: rgba(0, 173, 140, 1);
+    }
+    .providerButton {
+        border: 1px solid rgba(77, 85, 102, 1);
+        border-radius: 25px;
+    }
 </style>
